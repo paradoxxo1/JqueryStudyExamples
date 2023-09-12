@@ -4,60 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
-        body{
-            margin:0;
-            padding: 0;
+        #wrapper {
+            width: 700px;
+            margin: 0 auto;
         }
-        #message-box{
-            background-color: green;
-            text-align: center;
-            color: white;
+        body {
+            font-size: 180%;
         }
-        #header{
+        input {
+            padding: 15px;
+            font-size: 25px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            width: 450px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 14px 20px;
+            border-radius: 5px;
             cursor: pointer;
-            height:25px;
-            padding: 10px;
-            border-bottom: 1px solid #fff;
-
+            border: none;
+            margin-top: 20px;
+            width: 100%;
         }
-
-        #content{
-            padding: 10px;
-            height: 200px;
-            display: none;
-        }
-        #close{
-            float: right;
-        }
-        #close:hover{
-            color: black;
+        #error {
+            color: red;
+            text-align: left;
         }
     </style>
-
-    <script>
-        $(function(){
-            
-            $("#header").click(function(){
-                
-                $("#content").toggle("slow");
-            });
-            $("#close").click(function(){
-                
-                $("#message-box").hide("slow");
-            });
-        });
-
-    </script>
 </head>
 <body>
-    <div id="message-box">
-        <div id="header">
-            <span id="close">X</span>U have Message
-
+    <div id="wrapper">
+        <div id="error"></div>
+        <div class="form-group">
+            <label for="email" style="width: 150px;">Email</label>
+            <input type="text" name="email" id="email" placeholder="Please enter your email">
         </div>
-        <div id="content"></div>
+        <div class="form-group">
+            <label for="phone" style="width: 150px;">Telefon</label>
+            <input type="text" name="phone" id="phone" placeholder="Please enter your phone">
+        </div>
+        <div class="form-group">
+            <label for="password" style="width: 150px;">Parola</label>
+            <input type="password" name="password" id="password" placeholder="Please enter your password">
+        </div>
+        <div class="form-group">
+            <label for="repassword" style="width: 150px;">Parola Tekrar</label>
+            <input type="password" name="repassword" id="repassword" placeholder="Please enter your repassword">
+        </div>
+        <button id="btn">Kaydet</button>
     </div>
+    <script>
+        $(function () {
+    
+            function isEmail(email) {
+                var pattern = /^([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+)\.([a-zA-Z]{2,5})$/;
+                return pattern.test(email);
+            }
+    
+            $("#btn").click(function () {
+
+                var errormessage = "";
+                $("#error").html("");
+
+                if ($("#email").val() == "") {
+                    errormessage += "<p>Email area cannot be empty</p>";
+                }
+                if (isEmail($("#email").val()) == false) {
+                    errormessage += "<p>Email type not correct value</p>";
+                }
+                if ($.isNumeric($("#phone").val())==false){
+                    errormessage += "<p>Phone area cannot be empty</p>";
+                }
+                if ($("#password").val() == "") {
+                    errormessage += "<p>Password area cannot be empty</p>";
+                }
+                if ($("#password").val() != $("#repassword").val()) {
+                    errormessage += "<p>Passwords not are equal try again same password</p>";
+                }
+                if (errormessage !== "") {
+                    $("#error").html(errormessage);
+                }
+            });
+        });
+    </script>
+    
 </body>
-</html> 
+</html>
