@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+        }
+        #message-box{
+            background-color: green;
+            text-align: center;
+            color: white;
+        }
+        #header{
+            cursor: pointer;
+            height:25px;
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+
+        }
+
+        #content{
+            padding: 10px;
+            height: 200px;
+            display: none;
+        }
+        #close{
+            float: right;
+        }
+        #close:hover{
+            color: black;
+        }
+    </style>
+
+    <script>
+        $(function(){
+            
+            $("#header").click(function(){
+                
+                $("#content").toggle("slow");
+            });
+            $("#close").click(function(){
+                
+                $("#message-box").hide("slow");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="message-box">
+        <div id="header">
+            <span id="close">X</span>U have Message
+
+        </div>
+        <div id="content"></div>
+    </div>
+</body>
+</html> 

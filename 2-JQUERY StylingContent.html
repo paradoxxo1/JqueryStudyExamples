@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <a href="">Link</a>
+    <h3 id="header">JQUERY DERSLERİ</h3>
+    <ul id="liste">
+        <li class="item">JQUERY Reference</li>
+        <li>Selectors</li>
+        <li class="item">JQUERY Plugins</li>
+    </ul>
+    <script>
+        document.getElementById("header").style.color="red";
+        
+        $("#header").css("color","blue");  //başlıktaki css değerlerini değiştirme
+        $("liste a").css("text-decoration","none"); // liste elemanlarının içinde bulunan a değerlerinin css özelliğini değiştirme
+        $("a").css("text-decoration","none");  //sayfadaki tüm a etiketi altındaki değerleri değiştirme
+
+        var styles = 
+        {
+            color:"yellow",
+            fontSize:"20px",
+            border:"1px solid red"
+
+        }
+
+        $("ul li").css(styles);
+        $("a").css({
+            color:"yellow",
+            fontSize:"20px",
+            border:"1px solid red"
+
+        })
+
+        $(".item").css({
+            display:"none"
+            
+        })
+
+
+//JAVA SCRİPT İLE Lİ NESNELERİNİN RENGİNİ DEĞİŞTİRME KOMUTU 5 SATIRLIK KODU TEK SATIRDA JQUERY İLE YAZABİLİYORUZ.
+        //var listeler = document.querySelectorAll("li");
+
+       // for(var i=0; i<listeler.length; i++)
+      //  {
+       //     listeler[i].style.color="red";
+      //  }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        .highlight
+        {
+            background-color: purple;
+            display: none;
+        }
+        .green
+        {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>JQUERY HELPER METHODS </h1>
+    <ul>
+        <li>JQUERY SELECTORS</li>
+        <li>JQUERY METHODS</li>
+        <li>JQUERY ANİMATİONS</li>
+    </ul>
+    <img src="https://www.pngmart.com/files/16/Koala-Face-PNG-Image.png" width="200">
+
+    <input id="name" type="text" placeholder="name" >
+    <input id="surname" class="green" type="text" placeholder="surname" >
+    <button id = "btnSave" onclick="namesurname();">Kaydet</button>
+    <script>
+        console.log($("h1").text());
+        console.log($("ul li").text());
+        $("h1").text("JavaScript");
+        console.log($("input").val());
+        //$("input").val("sssss"); buraya yazılan kod textboxın açıklama değeri 
+        $("img").attr("width", "400")
+
+        function namesurname()
+        {
+            var name =$("#name").val();
+            var surname=$("#surname").val();
+            console.log("Name and Surname " + name + " "+ surname);
+
+           // $("#name").addClass("highlight");
+            $("#surname").removeClass("green");
+            $("#name").toggleClass("highlight"); //eğer class içinde ekli değil ise ekler ekli ise çıkartır
+
+        }
+
+    </script>
+</body>
+</html>
